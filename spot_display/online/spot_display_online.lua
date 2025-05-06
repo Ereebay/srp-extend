@@ -6,8 +6,10 @@ screen.position = vec2(ac.getSim().windowWidth - 500, 0)
 screen.sizeOriginal = vec2(500, 100)
 screen.size = screen.sizeOriginal
 screen.ratio = 1
+--todo
+--support modify window size and posistion 
 
-local image_remote_path = "GITHUB" --todo
+local image_remote_path = "GITHUB" --remote file path
 local image_local_path
 local function imagecallback(err, folder)
     image_local_path = folder
@@ -16,7 +18,8 @@ local function imagecallback(err, folder)
 web.loadRemoteAssets(image_remote_path, imagecallback)
 
 
-
+--todo
+--add multi-language support and save in ini file
 local spot_json = {
 	["001_tatsumi"] = { position = vec3(6012.77, 25.3407, -4734.69), distance = 300, text = "Tatsumi", desc = "辰巳枢纽&停车场", sign = { "B", "9" } },
 	["003_oiw"] = { position = vec3(957.802, 6.20322, -241.709), distance = 20, text = "Oi West", desc = '大井停车场(西)', sign = { "B" } },
@@ -180,7 +183,6 @@ function script.drawUI()
 			screen.position + vec2(0, screen.size.y * 0.35),
 			screen.position + screen.size, ui.Alignment.Center,
 			ui.Alignment.Center, false, rgbm(1, 1, 1, transparent))
-		ac.debug('folder',__dirname)
 		signPos = screen.position + vec2(screen.size.x / 2, screen.size.y) + vec2(-50 * screen.ratio * #sign, 0)
 
 		if #sign > 0 then
